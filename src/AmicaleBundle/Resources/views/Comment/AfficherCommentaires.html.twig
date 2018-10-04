@@ -1,0 +1,97 @@
+<div id="affcomm">
+{% for Commentaire in Commentaires %}
+{% if app.user %}
+        {% if actualUser.id is sameas(Commentaire.idUser.id) %}
+                <diV>
+                    <span class="label label-success">  vous avez dit : </span>
+                    </br>
+                    <span class="glyphicon glyphicon-comment  text-warning"></span>
+                    {{ Commentaire.contenu }}
+                    </br>
+                    <span class="label label-info"> {{ Commentaire.dateAjout|date }}</span>
+
+
+                    <a href="{{ path('SupprimerCommentaire',{'idCommentaire':Commentaire.id}) }}"
+                       class="label label-danger">Supprimer</a>
+                    <a href="{{ path('ModifierCommentaire',{'idCommentaire':Commentaire.id}) }}"
+                       class="label label-warning">Modifier</a>
+                </diV>
+            {% else %}
+                <div>
+                                                            <span class="label label-warning">
+
+
+
+                                                     {{ Commentaire.idUser.username   }}           a dit : </span>
+                    </br>
+                    <span class="glyphicon glyphicon-comment  text-warning"></span>
+                    {{ Commentaire.contenu }}
+                    </br>
+                    <span class="label label-info"> {{ Commentaire.dateAjout|date }}</span>
+                    <a href="{{ path('SignalerCommentaire',{'idCommentaire':Commentaire.id}) }}"
+                       class="label label-danger">Signaler</a>
+                </div>
+        {% endif %}
+    </br>
+    </br>
+    </a>
+    {% else %}
+  <div>
+                                                            <span class="label label-warning">
+                         {{ Commentaire.idUser.username }}
+
+
+                                                                a dit : </span>
+    </br>
+    <span class="glyphicon glyphicon-comment  text-warning"></span>
+    {{ Commentaire.contenu }}
+    </br>
+    <span class="label label-info"> {{ Commentaire.dateAjout|date }}</span>
+
+</div>
+{% endif %}
+{% endfor %}
+</div>
+{% if app.user %}
+{% if afficher == true %}
+<div class="panel-footer">
+    <div id="commentaire" class="panel-footer">
+
+
+        <form id="formajout" method="post">
+            <textarea id="commentaire" name="contenu" class="form-control"></textarea>
+        </form>
+        <input onclick="AjoutComm()" value="Valider" type="button" class="form-control btn btn-success">
+    </div>
+</div>
+
+{% else %}
+    <div class="panel-footer">
+      pour ne pouvez pas commenter :
+        l'offre est terminer
+    </div>
+{% endif %}
+{% endif %}
+<script type="text/javascript">
+    function AjoutComm() {
+
+        var form = document.getElementById("formajout");
+        var formURL = "{{ path('Commenter', {'idAnnonce': idAnnonce}) }}";
+        var formData = new FormData(form);
+        $.ajax({
+            url: formURL,
+            type: 'POST',
+            data: formData,
+            mimeType: "multipart/form-data",
+            contentType: false,
+            cache: false,
+            processData: false
+        }).done(function (response) {
+            $('#affcomm').html(response);
+        });
+
+    }
+</script>
+
+
+

@@ -1,0 +1,260 @@
+<html  xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+
+    {% block head %}
+        <meta charset="utf-8"/>
+        <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+        <title>{% block title %} Forum {% endblock %}</title>
+        {% block stylesheet %}
+            <link rel="stylesheet" href="{{ asset('assets/css/forum.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('assets/css/ie8.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('assets/css/forum2.css') }}"/>
+            <link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/rating.css') }}" />
+
+            <!-- Bootstrap 3.3.6 -->
+            <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+            <!-- Font Awesome -->
+            <link rel="stylesheet" href=" {{ asset('assets/css/font-awesome.min.css') }}">
+            <!-- Ionicons -->
+            <link rel="stylesheet" href="{{ asset('assets/css/ionicons.min.css') }}">
+            <!-- Theme style -->
+            <link rel="stylesheet" href=" {{ asset('assets/css/AdminLTE.min.css') }}">
+
+            <!-- AdminLTE Skins. Choose a skin from the css/skins
+                 folder instead of downloading all of them to reduce the load. -->
+            <link rel="stylesheet" href="{{ asset('assets/css/_all-skins.min.css') }}">
+            <!-- bootstrap wysihtml5 - text editor -->
+            <link rel="stylesheet" href=" {{ asset('assets/css/bootstrap3-wysihtml5.min.css') }}">
+
+            <style>
+                h1,h2,a {color: #D16060;}
+                /* The Modal (background) */
+                .modal {
+                    display: none; /* Hidden by default */
+                    position: fixed; /* Stay in place */
+                    z-index: 1; /* Sit on top */
+                    padding-top: 100px; /* Location of the box */
+                    left: 0;
+                    top: 0;
+                    width: 100%; /* Full width */
+                    height: 100%; /* Full height */
+                    overflow: auto; /* Enable scroll if needed */
+                    background-color: rgb(0,0,0); /* Fallback color */
+                    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+                }
+
+                /* Modal Content */
+                .modal-content {
+                    position: relative;
+                    background-color: #fefefe;
+                    margin: auto;
+
+                    padding: 0;
+                    border: 1px solid #888;
+                    width: 40%;
+                    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+                    -webkit-animation-name: animatetop;
+                    -webkit-animation-duration: 0.4s;
+                    animation-name: animatetop;
+                    animation-duration: 0.4s
+                }
+
+                /* Add Animation */
+                @-webkit-keyframes animatetop {
+                    from {top:-300px; opacity:0}
+                    to {top:0; opacity:1}
+                }
+
+                @keyframes animatetop {
+                    from {top:-300px; opacity:0}
+                    to {top:0; opacity:1}
+                }
+
+                /* The Close Button */
+                .close {
+                    color: white;
+                    float: right;
+                    font-size: 28px;
+                    font-weight: bold;
+                }
+
+                .close:hover,
+                .close:focus {
+                    color: #000;
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+
+                .modal-header {
+                    padding: 2px 16px;
+                    background-color: #5cb85c;
+                    color: white;
+                    width: 40%;
+                }
+
+                .modal-body {padding: 2px 16px;}
+
+                .modal-footer {
+                    padding: 2px 16px;
+                    background-color: #5cb85c;
+                    color: white;
+                }
+            </style>
+        {% endblock %}
+    {% endblock %}
+</head>
+
+<body>
+<div id="container">
+    {% block content %}
+    <div id="sitetitle">
+        <h1><a href="#">Forum
+                Amical Esprit</a></h1>
+        <h2></h2>
+    </div>
+    <div id="menu"> <a href="{{ path('LesSections') }}">Acceuil</a> </div>
+    <div id="content">
+        <div id="left">
+            {% for i in publications %}
+                <div class="well">
+                    <div class="media">
+                        <a class="pull-left" href="#">
+                            <img class="media-object" src="https://buzonweb.us.es/css/img/apps/idm.png">
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading">Titre: {{ i.PUB_TITRE}}</h4>
+                            <h4 class="media-heading">Objet: {{ i.PUB_OBJET }}</h4>
+                            <p class="text-right">Ajoutée le: {{i.PUB_DATE|date('d-m-Y')}}</p>
+                            <p class="text-right">Par:  {{ app.user.username }}</p>
+                            <p>{{ i.PUB_DESCRIPTION }}</p>
+                            <ul class="list-inline list-unstyled">
+                                <li><span></span></li>
+                                <li>
+                                    {% if i.user_id == app.user.id  %} {% else %}
+                                </li>
+
+                                <li>
+                                    <a class="" id="" onclick=" myFunction({{ i.PUB_ID }})" >Evaluer</a>
+                                </li>
+                                {% endif  %}
+                                {% if i.nbr == 0 %}{% set foo =0 %} {% else %}
+                                    {% set foo = i.valeur/i.nbr %}{% endif  %}
+                                <li>
+                                    {{ foo|rating(4) }}
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="{{ i.PUB_ID }}" name="aa" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <h3>Evaluez la publication</h3>
+                            <p>{{ i.PUB_ID }}</p>
+                            <form method="post" action="{{ path('update_avis',{'id':i.PUB_ID,'ids':i.PUB_SEC_ID}) }}"  enctype="multipart/form-data" >
+                                <input type="number" name="valeur" style="
+    width:60px;
+" max="5" min="0"/>
+                                <input type="submit"  value="Ajouter"></form>
+                        </div></div></div>
+            {% endfor %}
+            <div class="text-center">
+                {{ knp_pagination_render(publications) }}
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>
+<!-- /.box-body -->
+<!-- /.box -->
+
+
+
+<div id="right">
+
+    {% for i in publications[:1] %}
+        <button class="style1" type="submit"  ><a href="{{ path('Ajout_Publication',{'id':i.PUB_SEC_ID}) }}"><i class="fa fa-reply lazyIcon "></i> Répondre</a></button>
+    {% endfor %}
+</div>
+<div id="footer">
+</div>
+
+
+
+<script src="{{ asset('assets/js/jquery-1.10.2') }}"></script>
+<!-- BOOTSTRAP SCRIPTS -->
+
+<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+<!-- METISMENU SCRIPTS -->
+
+<script src="{{ asset('assets/js/jquery.metisMenu.js') }}"></script>
+
+<!-- CUSTOM SCRIPTS -->
+
+<script src="{{ asset('assets/js/custom.js') }}"></script>
+
+<!-- jQuery 2.2.3 -->
+<script src="{{ asset('assets/js/jquery-2.2.3.min.js') }}"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src=" {{ asset('assets/js/bootstrap.min.js') }}"></script>
+<!-- FastClick -->
+<script src=" {{ asset('assets/js/fastclick.js') }}" ></script>
+<!-- AdminLTE App -->
+<script src=" {{ asset('assets/js/app.min.js') }}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src=" {{ asset('assets/js/demo.js') }}"></script>
+<!-- CK Editor -->
+<script src=" {{ asset('assets/js/ckeditor.js') }}"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script src=" {{ asset('assets/js/bootstrap3-wysihtml5.all.min.js ') }}"></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="{{ asset('bundles/starrating/js/rating.js') }}"></script>
+</div>
+
+<script>
+    // Get the modal
+
+
+    // Get the button that opens the modal
+    //var modal = document.getElementsByName("aa")[1];
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal
+
+    // When the user clicks on <span> (x), close the modal
+    function myFunction(id) {
+
+        var modal = document.getElementById(id);
+
+        modal.style.display = "block";
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        //eturn id;
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+
+</script>
+
+{% endblock %}
+
+
+</body>
+</html>

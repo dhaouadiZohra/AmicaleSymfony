@@ -1,0 +1,69 @@
+{% extends "AmicaleBundle::layoutUser.html.twig" %}
+
+{% block titleX %}
+    Galerie
+{% endblock titleX %}
+
+{% block body %}
+    <div class="wrapper style3">
+
+        <div class="title"> Galerie </div>
+
+        <form method="GET">
+            <div>
+                        Taper pour chercher une image:
+                    <br>
+                        <input type="text" name="rechercher" class="pull-left" placeholder="Rechercher" size ='25'>
+                        <input type="submit" value="Chercher" class="pull-right" >
+            </div>
+        </form>
+
+        <div id="highlights" class="container">
+            <div class="row 150%">
+
+            <br>
+            {% if exist %}
+                {% if galerie| length !=0 %}
+                    {% for img in galerie %}
+
+
+                            <div class="4u 12u(mobile)">
+                                <section class="highlight">
+                                    <a href="#" class="image featured"><img src="{{ asset('uploads/images/'~ img.glrImg ) }}" alt="" /></a>
+                                    <h3><a href="#">{{ img.glrImg}}</a></h3>
+                                    <p>Crée le:{{ img.glrDate |date('d-m-Y') }}</p>
+
+                                </section>
+                            </div>
+                    {% endfor %}
+                {% else %}
+                    <p> Aucune image toruvée !</p>
+                {% endif %}
+            {% else %}
+                {% for img in galeries %}
+
+                <div class="4u 12u(mobile)">
+                            <section class="highlight">
+                                <a href="#" class="image featured"><img src="{{ asset('uploads/images/'~ img.glrImg ) }}" alt="" /></a>
+                                <h3><a href="#">{{ img.glrImg}}</a></h3>
+                                <p>Crée le:{{ img.glrDate |date('d-m-Y') }}</p>
+                                <ul class="actions">
+
+                                </ul>
+                            </section>
+
+                    </div>
+                {% endfor %}
+
+            {% endif %}
+
+            <div class="navigation text-center">
+                {{ knp_pagination_render(galeries) }}
+            </div>
+
+        </div>
+    </div>
+    </div>
+    </div>
+{% endblock body %}
+

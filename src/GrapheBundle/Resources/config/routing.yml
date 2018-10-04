@@ -1,0 +1,15 @@
+graphe_homepage:
+    path:     /
+    defaults: { _controller: GrapheBundle:Default:index }
+
+chart_line:
+    path:     /chartLine
+    defaults: { _controller: GrapheBundle:Graphe:chartLine }
+
+histogramme:
+    path:     /histogramme
+    defaults: { _controller: GrapheBundle:Graphe:histogramme }
+
+pie:
+    path:     /pie
+    defaults: { _controller: GrapheBundle:Graphe:pie }

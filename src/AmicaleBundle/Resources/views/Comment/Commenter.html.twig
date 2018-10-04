@@ -1,0 +1,31 @@
+<div id="commentaire" class="panel-footer">
+
+
+    <form id="formajout" method="post">
+        <textarea id="commentaire" name="contenu"></textarea>
+    </form>
+    <input onclick="AjoutComm()" value="Valider" type="button">
+</div>
+<script type="text/javascript">
+    function AjoutComm() {
+
+        var form = document.getElementById("formajout");
+        var formURL = "{{ path('Commenter', {'idAnnonce': idAnnonce}) }}";
+        var formData = new FormData(form);
+        $.ajax({
+            url: formURL,
+            type: 'POST',
+            data: formData,
+            mimeType: "multipart/form-data",
+            contentType: false,
+            cache: false,
+            processData: false
+        }).done(function (response) {
+            $('#affichtab').html(response);
+            swal("Supprimé !", "L'élément a été supprimé.", "success");
+        });
+
+    }
+</script>
+
+

@@ -1,0 +1,4 @@
+services:
+#    amicale.example:
+#        class: AmicaleBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

@@ -1,0 +1,18 @@
+mail:
+    resource: "@MailBundle/Resources/config/routing.yml"
+    prefix:   /
+
+graphe:
+    resource: "@GrapheBundle/Resources/config/routing.yml"
+    prefix:   /Graphe
+
+amicale:
+    resource: "@AmicaleBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

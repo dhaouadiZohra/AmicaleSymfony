@@ -1,0 +1,35 @@
+{% extends "AmicaleBundle::layoutUser.html.twig" %}
+
+{% block map %}
+    <div>
+        {% if google_maps.hasMaps() %}
+            {% for map in google_maps.getMaps() %}
+                {% autoescape false %}
+                    {{ map.render }}
+                {% endautoescape %}
+            {% endfor %}
+        {% endif %}
+
+    </div>
+ {% endblock map %}
+{% block body %}
+
+<div class="wrapper style2">
+    <div class="title">Acceuil</div>
+    <div id="main" class="container">
+
+        <!-- Features -->
+        <section id="features">
+            <header class="style1">
+
+                <h2 class="icon fa-user fa-5x"> &ensp; Bonjour {{ app.user.username }}, bienvenu sur l'Amicale d'Esprit</h2>
+                <p></p>
+            </header>
+        </section>
+
+    </div>
+</div>
+
+{% endblock body %}
+
+

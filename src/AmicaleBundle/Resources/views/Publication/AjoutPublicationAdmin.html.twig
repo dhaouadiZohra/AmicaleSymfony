@@ -1,0 +1,50 @@
+{% extends "AmicaleBundle::layoutAdmin.html.twig" %}
+
+{% block title %}
+    Forum Amical Esprit
+{% endblock title %}
+{% block body %}
+
+    <div id="sitetitle">
+    <h1><a href="#"  ></a></h1>
+    <h1><a2><forum</a2></h1>
+    <div id="content">
+        <div id="left">
+
+        </div>
+
+        <div id="right">
+            <form method="post">
+                <div class="form-group">
+                    <label>Titre</label>
+                    <input type="text" class="form-control" placeholder="Titre..." name="titre" required>
+                    <label>Objet</label>
+                    <input type="text" class="form-control" placeholder="Objet ..." name="objet" required>
+                    <label>Description</label>
+                    <textarea class="textarea" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="desc" required></textarea>
+                </div>
+                <input type="submit" class="style1" value="Valider" />
+            </form>
+        </div>
+
+
+
+        <script src="{{ asset('assets/js/jquery-1.10.2') }}"></script>
+        <!-- BOOTSTRAP SCRIPTS -->
+
+        <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+        <!-- METISMENU SCRIPTS -->
+
+        <script src="{{ asset('assets/js/jquery.metisMenu.js') }}"></script>
+
+        <!-- CUSTOM SCRIPTS -->
+
+        <script src="{{ asset('assets/js/custom.js') }}"></script>
+    </div>
+
+
+
+
+    <!-- /.row -->
+
+{% endblock body %}

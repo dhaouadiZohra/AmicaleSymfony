@@ -1,0 +1,80 @@
+{% extends "AmicaleBundle::layoutUser.html.twig" %}
+
+{% block body %}
+
+    <div class="wrapper style2">
+        <div class="title">Activité de charité </div>
+        <div id="main" class="container">
+
+            <div id="main" class="container">
+                <div class="row 150%">
+                    <div class="12u 12u(mobile)">
+
+                        <!-- Content -->
+                        <div id="content">
+                            <article class="box post">
+
+                                <div class="feature-list">
+
+                                    <table>
+
+                                        {% for act in activites %}
+                                            {% if act.actType =="charite"  %}
+                                                <tr>
+                                                    <td>
+                                                        <div class="row" >
+                                                            <div>
+                                                                <h3 style="font-size: 40px;margin-bottom: 24px"> {{ act.actIntitule }}  </h3>
+                                                                <label style="font-size: 36px;color:  lightpink" >Lieu:</label>
+                                                                <label style="font-size: 24px;color:#1f232b ;align:left;margin-bottom: 24px"> {{ act.actLieu }} <br> <br> <br></label>
+                                                                <label style="font-size: 36px;color:  lightpink" >Montant à atteindre:</label>
+                                                                <label style="font-size: 24px;color:#1f232b ;align:left;margin-bottom: 24px">{{ act.actChMontant }} DTS<br> <br> <br></label>
+
+                                                                <label style="font-size: 36px;color:  lightpink" >Début:</label>
+                                                                <label style="font-size: 24px;color:#1f232b ;align:left;margin-bottom: 24px">
+                                                                    Le {{ act.actDateDeb |date('d-m-Y')}} à {{act.actHeureDeb |date('H:i')}}<br> <br> <br></label>
+                                                                <label style="font-size: 36px;color:  lightpink">Fin: </label>
+                                                                <label style="font-size: 24px;color:#1f232b ;align:left;margin-bottom: 24px">
+                                                                    Le {{ act.actDateFin |date('d-m-Y')}} à {{act.actHeureFin|date('H:i')}}<br> <br> <br></label>
+                                                                <label style="font-size: 18px;color:#1f232b ;align:left;margin-bottom: 24px"> {{ act.actDescription }}</label>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="6u 12u(mobile)">
+
+                                                            <ul class="actions actions-centered">
+
+                                                                <a href="{{ path('ParticiperCHR', {'id':act.actId})}}" class="button style1 big" methods="Post">Participer</a>
+                                                            </ul></div></td>
+                                                    <div class="6u 12u(mobile)">
+                                                        <td>
+                                                            <ul class="actions actions-centered">
+                                                                <a href="#" class="button style2 big" style="margin-bottom: 60px">Détails</a>
+                                                            </ul>
+                                                    </div>
+                                                    </td>
+                                                </tr>
+
+
+                                            {% endif %}
+                                        {% endfor %}
+                                    </table>
+                                </div>
+                            </article>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+{% endblock body %}
+
+

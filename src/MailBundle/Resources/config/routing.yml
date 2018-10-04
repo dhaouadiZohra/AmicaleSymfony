@@ -1,0 +1,12 @@
+mail_homepage:
+    path:     /
+    defaults: { _controller: MailBundle:Default:index }
+my_app_mail_succ:
+ path: /succ
+ defaults: { _controller: MailBundle:Mail:index }
+my_app_mail_form:
+ path: /mail
+ defaults: { _controller: MailBundle:Mail:new }
+my_app_mail_sendpage:
+ path: /sendmail
+ defaults: { _controller: MailBundle:Mail:sendMail }

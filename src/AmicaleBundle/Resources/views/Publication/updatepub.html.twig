@@ -1,0 +1,99 @@
+<html  xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    {% block head %}
+        <meta charset="utf-8"/>
+        <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+        <title>{% block title %} Forum {% endblock %}</title>
+        {% block stylesheet %}
+            <link rel="stylesheet" href="{{ asset('assets/css/forum.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('assets/css/font-awesome.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('assets/css/ie8.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('assets/css/forum2.css') }}"/>
+            <!-- Bootstrap 3.3.6 -->
+            <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+            <!-- Font Awesome -->
+            <link rel="stylesheet" href=" {{ asset('assets/css/font-awesome.min.css') }}">
+            <!-- Ionicons -->
+            <link rel="stylesheet" href="{{ asset('assets/css/ionicons.min.css') }}">
+            <!-- Theme style -->
+            <link rel="stylesheet" href=" {{ asset('assets/css/AdminLTE.min.css') }}">
+            <!-- AdminLTE Skins. Choose a skin from the css/skins
+                 folder instead of downloading all of them to reduce the load. -->
+            <link rel="stylesheet" href="{{ asset('assets/css/_all-skins.min.css') }}">
+            <!-- bootstrap wysihtml5 - text editor -->
+            <link rel="stylesheet" href=" {{ asset('assets/css/bootstrap3-wysihtml5.min.css') }}">
+
+        {% endblock %}
+    {% endblock %}
+</head>
+
+<body>
+<div id="container">
+    {% block content %}
+    <div id="sitetitle">
+        <h1><a href="#">Forum</a></h1>
+        <h2>Amical Esprit</h2>
+    </div>
+    <div id="menu"> <a href="#">home</a> </div>
+    <div id="content">
+        <div id="left">
+
+
+            {{ form_start(form) }}
+            {{ form_end(form) }}
+
+        </div>
+
+        <div id="right">
+
+        </div>
+
+
+
+
+
+
+        <div id="footer">
+            <h2 class="hide">Site info</h2>
+            <span>close to attraction</span><br />
+            &copy; 2005 Your Name | Design by <a href="http://andreasviklund.com/">Andreas Viklund</a> | <a href="#">Homepage</a> | <a href="http://validator.w3.org/check?uri=referer">XHTML</a> / <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> / AA / 508
+        </div>
+
+    </div>
+
+    <script src="{{ asset('assets/js/jquery-1.10.2') }}"></script>
+    <!-- BOOTSTRAP SCRIPTS -->
+
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <!-- METISMENU SCRIPTS -->
+
+    <script src="{{ asset('assets/js/jquery.metisMenu.js') }}"></script>
+
+    <!-- CUSTOM SCRIPTS -->
+
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
+
+    <!-- jQuery 2.2.3 -->
+    <script src="{{ asset('assets/js/jquery-2.2.3.min.js') }}"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script src=" {{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <!-- FastClick -->
+    <script src=" {{ asset('assets/js/fastclick.js') }}" ></script>
+    <!-- AdminLTE App -->
+    <script src=" {{ asset('assets/js/app.min.js') }}"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src=" {{ asset('assets/js/demo.js') }}"></script>
+    <!-- CK Editor -->
+    <script src=" {{ asset('assets/js/ckeditor.js') }}"></script>
+    <!-- Bootstrap WYSIHTML5 -->
+    <script src=" {{ asset('assets/js/bootstrap3-wysihtml5.all.min.js ') }}"></script>
+</div>
+
+{% endblock %}
+
+
+</body>
+</html>

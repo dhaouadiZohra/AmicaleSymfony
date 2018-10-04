@@ -1,0 +1,10 @@
+<form method="POST">
+    Rechercher : <input type="text" name="rechercher"><br>
+    <input type="submit" value="submit">
+</form>
+
+{% for img in galerie %}
+<div >
+    <img src="{{ asset('uploads/images/'~ img.glrImg ) }}">
+</div>
+{% endfor %}

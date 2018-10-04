@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+<!--
+	Escape Velocity by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    {% block head %}
+        <title> {% block title %}     {% endblock %} </title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--[if lte IE 8]><script src="{{ asset('assets/js/ie/html5shiv.js') }}"></script><![endif]-->
+        <link rel="stylesheet" href="{{ asset('assets/css/main.css')}}" />
+        <!--[if lte IE 8]><link rel="stylesheet" href="{{ asset('assets/css/ie8.css') }}" /><![endif]-->
+    {% endblock %}
+</head>
+<body class="homepage">
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <div id="header-wrapper" class="wrapper">
+        <div id="header">
+
+            <!-- Logo -->
+            <div id="logo">
+                <h1><a href="{{ asset('index.html')}}">Amicale Esprit </a></h1>
+                <p>Quelques mots a dire</p>
+            </div>
+
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li class="current"><a href="{{ asset('Amicale/src/AmicaleBundle/Resources/views/Default/index.html.twig')}}">Acceuil</a></li>
+                    <li>
+                        <a href="#">Activité</a>
+                        <ul>
+                            <li><a href="{{ asset('/app_dev.php/indexCHR')  }}">Activité de charité</a></li>
+                            <li><a href="{{ asset('/app_dev.php/indexLSR')  }}">Activité de loisir</a></li>
+                        </ul>
+                    </li>
+                    <li class="current"><a href="{{ asset('index.html')}}"> Offres</a></li>
+                    <li class="current"><a href="{{ asset('index.html')}}"> Reservations</a></li>
+                    <li class="current"><a href="{{ asset('index.html')}}"> Membres</a></li>
+                    <li class="current"><a href="{{ asset('app_dev.php/indexFront')}}">Abonnements</a></li>                    <li class="current"><a href="{{ asset('index.html')}}">Galerie</a></li>
+                    <li class="current"><a href="{{ asset('index.html')}}">Forum</a></li>
+                    <li class="current"><a href="{{ asset('index.html')}}">Feedback</a></li>
+                    <li class="current"><a href="{{ asset('app_dev.php/mail')}}">Contactez-Nous</a></li>
+
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+
+    <!-- Intro -->
+    <div id="intro-wrapper" class="wrapper style1">
+
+        <div class="title"> Bienvenue</div>
+
+
+        <section id="intro" class="container">
+            {% block login%}
+                <p class="style1"></p>
+                <p class="style2">
+                    <br class="mobile-hide" />
+                    <a href="http://html5up.net" class="nobr"></a>
+                </p>
+
+            {% endblock %}
+        </section>
+
+    </div>
+
+    <!-- Main -->
+    <div class="wrapper style2">
+        <div class="title">Activités</div>
+        <div id="main" class="container">
+
+
+
+            <!-- Features -->
+            <section id="features">
+                {% block hello %}
+                {% endblock %}
+                <header class="style1">
+                    <h2>{% block titre %}
+                        {% endblock %}</h2>
+                </header>
+                {% block test %}
+                {% endblock %}
+
+            </section>
+
+        </div>
+    </div>
+
+
+
+    <!-- Footer -->
+    <div id="footer-wrapper" class="wrapper">
+        <div class="title">Contacts</div>
+        <div id="footer" class="container">
+
+
+            <div class="row 150%">
+                <div class="6u 12u(mobile)">
+
+                    <!-- Contact Form -->
+                    <section>
+                        <form method="post" action="#">
+                            <div class="row 50%">
+                                <div class="6u 12u(mobile)">
+                                    <input type="text" name="name" id="contact-name" placeholder="Name" />
+                                </div>
+                                <div class="6u 12u(mobile)">
+                                    <input type="text" name="email" id="contact-email" placeholder="Email" />
+                                </div>
+                            </div>
+                            <div class="row 50%">
+                                <div class="12u">
+                                    <textarea name="message" id="contact-message" placeholder="Message" rows="4"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="12u">
+                                    <ul class="actions">
+                                        <li><input type="submit" class="style1" value="Send" /></li>
+                                        <li><input type="reset" class="style2" value="Reset" /></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+
+                </div>
+                <div class="6u 12u(mobile)">
+
+                    <!-- Contact -->
+                    <section class="feature-list small">
+                        <div class="row">
+                            <div class="6u 12u(mobile)">
+                                <section>
+                                    <h3 class="icon fa-home"> ADRESSE </h3>
+                                    <p>
+                                        T (216) 70 685 685<br />
+                                        Z.I. Chotrana II B.P. 160<br />
+                                        Pôle Technologique El Ghazela - Ariana 2083<br />
+
+                                    </p>
+                                </section>
+                            </div>
+                            <div class="6u 12u(mobile)">
+                                <section>
+                                    <h3 class="icon fa-comment">SUIVEZ-NOUS</h3>
+                                    <p>
+                                        <a href="#">@untitled-corp</a><br />
+                                        <a href="https://www.linkedin.com/company/1146626?trk=tyah&trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A1146626%2Cidx%3A5-2-11%2CtarId%3A1467110950798%2Ctas%3Aesprit">linkedin.com/esprit</a><br />
+                                        <a href="https://www.facebook.com/esprit.tn/?fref=ts">facebook.com/esprit</a>
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="6u 12u(mobile)">
+                                <section>
+                                    <h3 class="icon fa-envelope">E-MAIL</h3>
+                                    <p>
+                                        <a href="mailto:contact@esprit.tn">Email : contact@esprit.tn</a>
+                                    </p>
+                                </section>
+                            </div>
+                            <div class="6u 12u(mobile)">
+                                <section>
+                                    <h3 class="icon fa-phone">TELEPHONE</h3>
+                                    <p>
+                                        (+216) 70 685 685 <br/>
+
+                                        (+216) 71 941 541 <br/>
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+            <hr />
+        </div>
+        <div id="copyright">
+            <ul>
+                <li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+
+<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.dropotron.min.js') }}"></script>
+<script src="{{ asset('assets/js/skel.min.js') }}"></script>
+<script src="{{ asset('assets/js/skel-viewport.min.js') }}"></script>
+<script src="{{asset ('assets/js/util.js') }}"></script>
+<!--[if lte IE 8]><script src="asset{{ ('assets/js/ie/respond.min.js') }}"></script><![endif]-->
+<script src="{{asset ('assets/js/main.js') }}"></script>
+
+</body>
+</html>

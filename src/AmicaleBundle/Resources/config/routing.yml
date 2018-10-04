@@ -1,0 +1,258 @@
+TestPath:
+    path:     /TestPaht
+    defaults: { _controller: AmicaleBundle:Offre:test }
+
+amicale_homepage:
+    path:     /
+    defaults: { _controller: AmicaleBundle:Default:index }
+
+Page_User:
+    path:     /User
+    defaults: { _controller: AmicaleBundle:User:index }
+
+Page_Admin:
+    path:     /Admin
+    defaults: { _controller: AmicaleBundle:Admin:index }
+
+Acceuil_Membre:
+    path:     /AcceuilMembre
+    defaults: { _controller: AmicaleBundle:Membre:index }
+
+Update_Membre:
+    path:     /UpdateMembre/{id}
+    defaults: { _controller: AmicaleBundle:Membre:update }
+
+Detail_Membre:
+    path:     /DetailMembre/{id}
+    defaults: { _controller: AmicaleBundle:Membre:detail }
+
+Delete_Membre:
+    path:     /DeleteMembre/{id}
+    defaults: { _controller: AmicaleBundle:Membre:delete }
+
+Acceuil_Reservation:
+    path:     /AcceuilReservation
+    defaults: { _controller: AmicaleBundle:Reservation:index }
+
+Create_Reservation:
+    path:     /CreateReservation
+    defaults: { _controller: AmicaleBundle:Reservation:create }
+
+Update_Reservation:
+    path:     /UpdateReservation/{id}
+    defaults: { _controller: AmicaleBundle:Reservation:update }
+
+Delete_Reservation:
+    path:     /DeleteReservation/{id}
+    defaults: { _controller: AmicaleBundle:Reservation:delete }
+
+Acceuil_Offre:
+    path:     /AcceuilOffre
+    defaults: { _controller: AmicaleBundle:Offre:index }
+
+Create_Offre:
+    path:     /CreateOffre
+    defaults: { _controller: AmicaleBundle:Offre:create }
+
+Update_Offre:
+    path:     /UpdateOffre/{id}
+    defaults: { _controller: AmicaleBundle:Offre:update }
+
+Delete_Offre:
+    path:     /DeleteOffre/{id}
+    defaults: { _controller: AmicaleBundle:Offre:delete }
+
+Pdf_Offre:
+    path:     /PdfOffre/{id}
+    defaults: { _controller: AmicaleBundle:Offre:pdf }
+
+Pdf_Membre:
+    path:     /PdfMembre/{id}
+    defaults: { _controller: AmicaleBundle:Membre:pdf }
+
+Pdf_Reservation:
+    path:     /PdfReservation/{id}
+    defaults: { _controller: AmicaleBundle:Reservation:pdf }
+Forum:
+    path:     /Section
+    defaults: { _controller: AmicaleBundle:Section:forum }
+Index_Section:
+    path:     /AcceuilSection
+    defaults: { _controller: AmicaleBundle:Section:index }
+
+LesSections:
+    path:     /LesSections
+    defaults: { _controller: AmicaleBundle:Section:lister }
+Ajout_Section:
+    path:     /AjoutSection
+    defaults: { _controller: AmicaleBundle:Section:ajout }
+delete_section:
+     path:     /delete/{id}
+     defaults: { _controller: AmicaleBundle:Section:delete}
+update_section:
+     path:     /update/{id}
+     defaults: { _controller: AmicaleBundle:Section:update}
+Publications:
+     path:     /Publications/{id}
+     defaults: { _controller: AmicaleBundle:Publication:lister}
+
+Acceuil_Publication:
+     path:     /AcceuilPublications
+     defaults: { _controller: AmicaleBundle:Publication:index}
+Ajout_Publication:
+     path:     /AjoutPublications/{id}
+     defaults: { _controller: AmicaleBundle:Publication:ajout}
+delete_publication:
+     path:     /delete/{id}
+     defaults: { _controller: AmicaleBundle:Publication:delete}
+
+update_publication:
+     path:     /update/{id}
+     defaults: { _controller: AmicaleBundle:Publication:update}
+
+Acceuil_ActiviteLSR:
+    path:     /AcceuilActiviteLSR
+    defaults: { _controller: AmicaleBundle:Activite:index }
+
+Create_ActiviteLSR:
+    path:     /CreateActiviteLSR
+    defaults: { _controller: AmicaleBundle:Activite:create }
+
+Update_ActiviteLSR:
+    path:     /UpdateActiviteLSR/{id}
+    defaults: { _controller: AmicaleBundle:Activite:update }
+
+Delete_ActiviteLSR:
+    path:     /DeleteActiviteLSR/{id}
+    defaults: { _controller: AmicaleBundle:Activite:delete }
+
+Acceuil_ActiviteCHR:
+    path:     /AcceuilActiviteCHR
+    defaults: { _controller: AmicaleBundle:ActiviteCHR:index }
+
+Create_ActiviteCHR:
+    path:     /CreateActiviteCHR
+    defaults: { _controller: AmicaleBundle:ActiviteCHR:create }
+
+Update_ActiviteCHR:
+    path:     /UpdateActiviteCHR/{id}
+    defaults: { _controller: AmicaleBundle:ActiviteCHR:update }
+
+Delete_ActiviteCHR:
+    path:     /DeleteActiviteCHR/{id}
+    defaults: { _controller: AmicaleBundle:ActiviteCHR:delete }
+
+Acceuil_Activite_Loisir:
+    path:     /indexLSR
+    defaults: { _controller: AmicaleBundle:Activite:Loisir }
+
+Participer_LSR:
+    path:     /indexLSR/{id}
+    defaults: { _controller: AmicaleBundle:Activite:Participer }
+
+Acceuil_Activite_Charite:
+    path:     /indexCHR
+    defaults: { _controller: AmicaleBundle:ActiviteCHR:Loisir }
+
+ParticiperCHR:
+    path:     /indexCHR/{id}
+    defaults: { _controller: AmicaleBundle:ActiviteCHR:Participer }
+
+Participations:
+    path:     /AcceuilParticipations
+    defaults: { _controller: AmicaleBundle:Activite:Participations }
+
+SupprimerComment:
+    path:    /SupprimerCommentaire/{idComment}
+    defaults: { _controller: AmicaleBundle:Comment:supprimerCommentaire }
+
+SignalerComment:
+    path:    /SignalerCommentaire/{id}
+    defaults: { _controller: AmicaleBundle:Comment:SignalerCommentaire }
+ModifierComment:
+    path:    /ModifierComment/{id}
+    defaults: { _controller: AmicaleBundle:Comment:ModifierComment }
+AdminGestionComment:
+    path:    /Admin/GestionComment
+    defaults: { _controller: AmicaleBundle:Comment:AdminGestionComment }
+AfficherComments:
+    path:    /AfficherComment/{id}
+    defaults: { _controller: AmicaleBundle:Comment:AfficherComments }
+Commenter:
+    path:    /Commenter/{id}
+    defaults: { _controller: AmicaleBundle:Comment:Commenter }
+
+Statistiques:
+    path:     /statistiques
+    defaults: { _controller: AmicaleBundle:Activite:chartpie }
+
+Acceuil_Activite_Captcha:
+    path:     ../../index.php
+    defaults: { _controller: AmicaleBundle:Activite:Loisir }
+
+Acceuil_ActiviteCHR_Captcha:
+    path:     ../../index.php
+    defaults: { _controller: AmicaleBundle:Activite:Participer }
+update_avis:
+      path:     /updateavis/{id}-{ids}
+      defaults: { _controller: AmicaleBundle:Publication:updateavis}
+archiver_section:
+      path:     /archiver/{id}
+      defaults: { _controller: AmicaleBundle:Section:archiver}
+list_archives:
+      path:     /listArchives
+      defaults: { _controller: AmicaleBundle:Section:listerarchive}
+
+Acceuil_Galerie:
+    path:     /AcceuilGalerie
+    defaults: { _controller: AmicaleBundle:Galerie:index }
+
+Acceuil_User_Galerie:
+    path:     /AcceuilUserGalerie
+    defaults: { _controller: AmicaleBundle:Galerie:indexUser }
+
+Create_Galerie:
+    path:     /CreateGalerie
+    defaults: { _controller: AmicaleBundle:Galerie:create }
+
+Update_Galerie:
+    path:     /UpdateGalerie/{id}
+    defaults: { _controller: AmicaleBundle:Galerie:update }
+
+Delete_Galerie:
+    path:     /DeleteGalerie/{id}
+    defaults: { _controller: AmicaleBundle:Galerie:delete }
+
+Recherche_Galerie:
+    path:     /RechercheGalerie
+    defaults: { _controller: AmicaleBundle:Galerie:recherche }
+
+indexFront:
+    path:     /indexFront
+    defaults: { _controller: AmicaleBundle:Abonnement:indexFront }
+
+create:
+    path:     /create
+    defaults: { _controller: AmicaleBundle:Abonnement:create }
+
+Delete_Abonnement:
+    path:     /DeleteAbonnement/{id}
+    defaults: { _controller: AmicaleBundle:Abonnement:delete }
+
+update:
+    path:     /update/{id}
+    defaults: { _controller: AmicaleBundle:Abonnement:update }
+
+find:
+    path:     /find
+    defaults: { _controller: AmicaleBundle:Abonnement:find }
+
+find_type:
+    path:     /findtype
+    defaults: { _controller: AmicaleBundle:Abonnement:find_type }
+
+index:
+    path:     /index
+    defaults: { _controller: AmicaleBundle:Abonnement:index }
+
+

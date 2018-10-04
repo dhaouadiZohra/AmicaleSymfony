@@ -1,0 +1,99 @@
+{% extends "AmicaleBundle::layoutUser.html.twig" %}
+
+{% block body %}
+
+    <div class="wrapper style2">
+        <div class="title">Forum </div>
+        <div id="main" class="container">
+
+            <div id="main" class="container">
+                <div class="row 150%">
+                    <div class="8u 12u(mobile)">
+
+                        <!-- Content -->
+                        <div id="content">
+                            <article class="box post">
+                                <header class="style1">
+                                    <h2>Forum Amical Esprit</h2>
+                                </header>
+
+                                <div class="feature-list">
+
+                                            {% for i in sections %}
+                                    <div class="row">
+                                        <div class="12u 12u(mobile)">
+                                            <section>
+
+                                                    <h3 class="icon fa-comment"><a href="{{ path('Publications', {'id':i.id})}}">{{ i.nomSec }}</a></h3>
+                                                    <p class="meta">
+
+                                                    <p class="meta"><span class="date"><i class="fa fa-calendar fa-fw"></i>Le {{ i.dateSec|date('d-m-Y') }}</span><i class="fa fa-user fa-fw"></i> Par: {{ app.user.username }}</p>
+
+                                            </section>
+                                        </div>
+                                    </div>
+                                     {% endfor %}
+
+                           </div>
+                            </article>
+
+                        </div>
+
+                    </div>
+                    <div class="4u 12u(mobile)">
+
+                        <!-- Sidebar -->
+                        <section class="box">
+                            <header>
+                                <h2>Nouvelle section </h2>
+                            </header>
+                            <ul class="style2">
+                                <form method="post">
+                                <li>
+                                    <input class="form-control" style="width: 100%;
+                                        padding: 12px 20px;
+                                        margin: 8px 0;
+                                        display: inline-block;
+                                        border: 1px solid #ccc;
+                                        border-radius: 4px;
+                                        box-sizing: border-box;"
+                                     placeholder="Saisir une nouvelle Section..." type="text" name="secNom" />
+                                </li>
+                                <li>
+                                    <input type="submit" class="style1" value="Valider" />
+
+                                </li>
+                                </form>
+                                <li>
+                                <div class="carbox">
+                                    <a class="img-carbox" href="#">
+                                        <img src="{{ asset("pic04.jpg") }}"/>
+                                    </a>
+                                    <div class="carbox-content">
+                                        <h4 class="carbox-title">
+                                            <a href="#"> Statistiques
+                                            </a>
+                                        </h4>
+                                        <p class="">
+                                        <div><a class="icon fa-tasks"  > Sections : 24</a></div>
+                                        <div><a class="icon fa-comment" > Publications : 13</a></div>
+                                        </p>
+                                    </div>
+
+                                </div>
+                                </li>
+                            </ul>
+                            </section>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+{% endblock body %}
+
+

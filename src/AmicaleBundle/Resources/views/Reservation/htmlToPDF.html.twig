@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Aamicale d'ESPRIT</title>
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">{% block title %} {% endblock %}</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Amicale d'Esprit
+                        </div>
+                        <div class="panel-body">
+                            <h4>  Detailles reservation </h4>
+                            <blockquote>
+                                <div class="table-responsive">
+                                    <div class="col-md-6">
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <td>
+                                                    Intitulé
+                                                </td><td>
+                                                    {{ reservation.resIntitule }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Lieu
+                                                </td><td>
+                                                    {{ reservation.resLieu }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Nombre de participants
+                                                </td><td>
+                                                    {{ reservation.resNbrPersonnes }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Date début
+                                                </td><td>
+                                                    {{ offre[0].ofrDateDeb | date('d-m-Y')  }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Heure début
+                                                </td><td>
+                                                    {{ offre[0].ofrHeureDeb |date('H:i')}}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Date fin
+                                                </td><td>
+                                                    {{ offre[0].ofrDateFin | date('d-m-Y')}}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Heure fin
+                                                </td><td>
+                                                    {{ offre[0].ofrHeureFin |date('H:i') }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Description
+                                                </td><td>
+                                                    {{ reservation.resDescription}}
+                                                </td>
+                                            </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </blockquote>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
+
+</body>
+
+</html>

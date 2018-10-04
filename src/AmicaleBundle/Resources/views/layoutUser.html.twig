@@ -1,0 +1,294 @@
+<!DOCTYPE HTML>
+<!--
+	Escape Velocity by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    {% block head %}
+        <title> {% block title %}   Amicale d'Esprit  {% endblock %} </title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--[if lte IE 8]><script src="{{ asset('assets/js/ie/html5shiv.js') }}"></script><![endif]-->
+        <link rel="stylesheet" href="{{ asset('assets/css/main.css')}}" />
+        <!--[if lte IE 8]><link rel="stylesheet" href="{{ asset('assets/css/ie8.css') }}" /><![endif]-->
+        <style>
+            h1,h2,a {color: #D16060;}
+            /* The Modal (background) */
+            .modal {
+                display: none; /* Hidden by default */
+                position: fixed; /* Stay in place */
+                z-index: 1; /* Sit on top */
+                padding-top: 100px; /* Location of the box */
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: auto; /* Enable scroll if needed */
+                background-color: rgb(0,0,0); /* Fallback color */
+                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            }
+
+            /* Modal Content */
+            .modal-content {
+                position: relative;
+                background-color: #fefefe;
+                margin: auto;
+
+                padding: 0;
+                border: 1px solid #888;
+                width: 40%;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+                -webkit-animation-name: animatetop;
+                -webkit-animation-duration: 0.4s;
+                animation-name: animatetop;
+                animation-duration: 0.4s
+            }
+
+            /* Add Animation */
+            @-webkit-keyframes animatetop {
+                from {top:-300px; opacity:0}
+                to {top:0; opacity:1}
+            }
+
+            @keyframes animatetop {
+                from {top:-300px; opacity:0}
+                to {top:0; opacity:1}
+            }
+
+            /* The Close Button */
+            .close {
+                color: white;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            .modal-header {
+                padding: 2px 16px;
+                background-color: #5cb85c;
+                color: white;
+                width: 40%;
+            }
+
+            .modal-body {padding: 2px 16px;}
+
+            .modal-footer {
+                padding: 2px 16px;
+                background-color: #5cb85c;
+                color: white;
+            }
+        </style>
+                <link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/rating.css') }}" />
+
+    {% endblock %}
+</head>
+<body class="homepage">
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <div id="header-wrapper" class="wrapper">
+        <div id="header">
+
+            <!-- Logo -->
+            <div id="logo">
+                <h1><a href="{{ asset('index.html')}}">Amicale d'Esprit </a></h1>
+            </div>
+
+            <!-- Nav -->
+            <nav id="nav">
+                <ul>
+                    <li class="current"><a href="{{ asset('/app_dev.php/User')}}">Acceuil</a></li>
+                    <li>
+                        <a href="#">Activité</a>
+                        <ul>
+                            <li><a href="{{ asset('/app_dev.php/indexCHR')  }}">Activité de charité</a></li>
+                            <li><a href="{{ asset('/app_dev.php/indexLSR')  }}">Activité de loisir</a></li>
+                        </ul>
+                    </li>
+                    <li class="current"><a href="{{ asset('app_dev.php/indexFront')}}">Abonnements</a></li>
+                    <li class="current"><a href="{{ asset('/app_dev.php/AcceuilUserGalerie') }}">Galerie</a></li>
+                    <li class="current"><a href="{{ asset('/app_dev.php/AjoutSection')}}">Forum</a></li>
+                    <li class="current"><a href="{{ asset('app_dev.php/mail')}}">Contactez-Nous</a></li>
+
+
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+
+    <!-- Main -->
+    {% block body %}
+
+    {% endblock %}
+
+    <!-- Footer -->
+    <div id="footer-wrapper" class="wrapper">
+        <div class="title">Contact</div>
+        <div id="footer" class="container">
+
+            <hr />
+            <div class="row 150%">
+                <div class="6u 12u(mobile)">
+
+                    <!-- Google Map -->
+                    <section>
+                        <a href="https://www.google.tn/maps/place/Esprit+Pr%C3%A9pa/@36.8984821,10.1875732,17z/data=!3m1!4b1!4m5!3m4!1s0x12e2cb7454c6ed51:0xcb5e71cbf91ec526!8m2!3d36.8984821!4d10.1897619?hl=fr">
+                            <img src="{{ asset('googleMap.PNG') }}" border="1">
+                        </a>
+                    </section>
+
+                </div>
+                <div class="6u 12u(mobile)">
+
+                    <!-- Contact -->
+                    <section class="feature-list small">
+                        <div class="row">
+                            <div class="6u 12u(mobile)">
+                                <section>
+                                    <h3 class="icon fa-home"> ADRESSE </h3>
+                                    <p>
+                                        T (216) 70 685 685<br />
+                                        Z.I. Chotrana II B.P. 160<br />
+                                        Pôle Technologique El Ghazela - Ariana 2083<br />
+
+                                    </p>
+                                </section>
+                            </div>
+                            <div class="6u 12u(mobile)">
+                                <section>
+                                    <h3 class="icon fa-comment">SUIVEZ-NOUS</h3>
+                                    <p>
+                                        <a href="#">@untitled-corp</a><br />
+                                        <a href="https://www.linkedin.com/company/1146626?trk=tyah&trkInfo=clickedVertical%3Acompany%2CclickedEntityId%3A1146626%2Cidx%3A5-2-11%2CtarId%3A1467110950798%2Ctas%3Aesprit">linkedin.com/esprit</a><br />
+                                        <a href="https://www.facebook.com/esprit.tn/?fref=ts">facebook.com/esprit</a>
+                                    </p>
+                                </section>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="6u 12u(mobile)">
+                                <section>
+                                    <h3 class="icon fa-envelope">E-MAIL</h3>
+                                    <p>
+                                        <a href="mailto:contact@esprit.tn">Email : contact@esprit.tn</a>
+                                    </p>
+                                </section>
+                            </div>
+                            <div class="6u 12u(mobile)">
+                                <section>
+                                    <h3 class="icon fa-phone">TELEPHONE</h3>
+                                    <p>
+                                        (+216) 70 685 685 <br/>
+
+                                        (+216) 71 941 541 <br/>
+                                    </p>
+                                </section>
+                            </div>
+                            <div class="6u 12u(mobile)">
+                                <section>
+                                    {% block map %}{% endblock %}
+                                </section>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+            <hr />
+        </div>
+        <div id="copyright">
+            <ul>
+                <li>&copy; www.amicale-esprit.tn</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+
+<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.dropotron.min.js') }}"></script>
+<script src="{{ asset('assets/js/skel.min.js') }}"></script>
+<script src="{{ asset('assets/js/skel-viewport.min.js') }}"></script>
+<script src="{{asset ('assets/js/util.js') }}"></script>
+<!--[if lte IE 8]><script src="asset{{ ('assets/js/ie/respond.min.js') }}"></script><![endif]-->
+<script src="{{asset ('assets/js/main.js') }}"></script>
+<script>
+    // Get the modal
+
+
+    // Get the button that opens the modal
+    //var modal = document.getElementsByName("aa")[1];
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on the button, open the modal
+
+    // When the user clicks on <span> (x), close the modal
+    function myFunction(id) {
+
+        var modal = document.getElementById(id);
+
+        modal.style.display = "block";
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        //eturn id;
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+
+</script>
+
+
+<script src="{{ asset('assets/js/jquery-1.10.2') }}"></script>
+<!-- BOOTSTRAP SCRIPTS -->
+
+<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+<!-- METISMENU SCRIPTS -->
+
+<script src="{{ asset('assets/js/jquery.metisMenu.js') }}"></script>
+
+<!-- CUSTOM SCRIPTS -->
+
+<script src="{{ asset('assets/js/custom.js') }}"></script>
+
+<!-- jQuery 2.2.3 -->
+<script src="{{ asset('assets/js/jquery-2.2.3.min.js') }}"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src=" {{ asset('assets/js/bootstrap.min.js') }}"></script>
+<!-- FastClick -->
+<script src=" {{ asset('assets/js/fastclick.js') }}" ></script>
+<!-- AdminLTE App -->
+<script src=" {{ asset('assets/js/app.min.js') }}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src=" {{ asset('assets/js/demo.js') }}"></script>
+<!-- CK Editor -->
+<script src=" {{ asset('assets/js/ckeditor.js') }}"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script src=" {{ asset('assets/js/bootstrap3-wysihtml5.all.min.js ') }}"></script>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="{{ asset('bundles/starrating/js/rating.js') }}"></script>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% extends "AmicaleBundle::layoutAdmin.html.twig" %}
+{% block title %}
+    Forum
+{% endblock title %}
+{% block body %}
+
+    <div id="content">
+        <div id="left">
+            {{ form_start(form) }}
+            <div class="form-group">
+                <label>Titre</label>
+                {{ form_widget(form.pubTitre , { 'attr': {'class': "form-control",
+                    'placeholder': "Enter text"} }) }}
+                <label>Objet</label>
+                {{ form_widget(form.pubObjet , { 'attr': {'class': "form-control",
+                    'placeholder': "Enter text"} }) }}
+                <label>Description</label>
+                {{ form_widget(form.pubDescription , { 'attr': {'class': "form-control",
+                    'placeholder': "Enter text"} }) }}
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+    <script src="{{ asset('assets/js/jquery-1.10.2') }}"></script>
+    <!-- BOOTSTRAP SCRIPTS -->
+
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+    <!-- METISMENU SCRIPTS -->
+
+    <script src="{{ asset('assets/js/jquery.metisMenu.js') }}"></script>
+
+    <!-- CUSTOM SCRIPTS -->
+
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
+    </div>
+    </body>
+    </html>
+
+
+
+{% endblock body %}

@@ -1,0 +1,115 @@
+
+{% extends "AmicaleBundle::layoutUser.html.twig" %}
+
+{% block body %}
+
+    <div class="wrapper style2">
+        <div class="title">Forum </div>
+        <div id="main" class="container">
+
+            <div id="main" class="container">
+                <div class="row 150%">
+                    <div class="8u 12u(mobile)">
+
+                        <!-- Content -->
+                        <div id="content">
+                            <article class="box post">
+                                <header class="style1">
+                                    <h2>Forum Amical Esprit</h2>
+                                </header>
+
+                                <div class="feature-list">
+                                    <div id="content">
+                                        <div id="left">
+                                            {% for i in publications %}
+                                                <div class="row">
+                                                    <div class="12u 12u(mobile)">
+                                                        <section>
+                                                            <a class="pull-left" href="#">
+                                                                <img class="media-object" src="https://buzonweb.us.es/css/img/apps/idm.png">
+                                                            </a>
+                                                            <div class="media-body">
+                                                                <h4 class="media-heading">Titre: {{ i.PUB_TITRE}}</h4>
+                                                                <h4 class="media-heading">Objet: {{ i.PUB_OBJET }}</h4>
+                                                                <p class="text-right">Ajoutée le: {{i.PUB_DATE|date('d-m-Y')}}</p>
+                                                                <p class="text-right">Par:  {{ app.user.username }}</p>
+                                                                <p>{{ i.PUB_DESCRIPTION }}</p>
+                                                                <ul class="list-inline list-unstyled">
+                                                                    <li><span></span></li>
+                                                                    <li>
+                                                                        {% if i.user_id == app.user.id  %} {% else %}
+                                                                    </li>
+
+                                                                    <li>
+                                                                        <a class="" id="" onclick=" myFunction({{ i.PUB_ID }})" >Evaluer</a>
+                                                                    </li>
+                                                                    {% endif  %}
+                                                                    {% if i.nbr == 0 %}{% set foo =0 %} {% else %}
+                                                                        {% set foo = i.valeur/i.nbr %}{% endif  %}
+                                                                    <li>
+                                                                        {{ foo|rating(4) }}
+
+                                                                    </li>
+
+                                                                </ul>
+                                                            </div>
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                                <div id="{{ i.PUB_ID }}" name="aa" class="modal">
+                                                    <div class="modal-content">
+                                                        <div class="modal-body">
+                                                            <h3>Evaluez la publication</h3>
+                                                            <p>{{ i.PUB_ID }}</p>
+                                                            <form method="post" action="{{ path('update_avis',{'id':i.PUB_ID,'ids':i.PUB_SEC_ID}) }}"  enctype="multipart/form-data" >
+                                                                <input type="number" name="valeur" style="
+    width:60px;
+" max="5" min="0"/>
+                                                                <input type="submit"  value="Ajouter"></form>
+                                                        </div></div></div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    <div class="">
+                                        {{ knp_pagination_render(publications) }}
+                                    </div>
+
+                                </div>
+                            </article>
+
+                        </div>
+
+                    </div>
+                    <div class="4u 12u(mobile)">
+
+                        <!-- Sidebar -->
+                        <section class="box">
+                            <header>
+                                <h2>Commenter ... </h2>
+                            </header>
+                            <ul class="style2">
+                                {% for i in publications[:1] %}
+
+                                    <button class="style1" type="submit"  ><a href="{{ path('Ajout_Publication',{'id':i.PUB_SEC_ID}) }}"><i class="fa fa-reply lazyIcon "></i> Répondre</a></button>
+                                {% endfor %}
+                                <li>
+                                    <div class="carbox">
+
+
+                                    </div>
+                                </li>
+                            </ul>
+                        </section>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+{% endblock body %}
+
+

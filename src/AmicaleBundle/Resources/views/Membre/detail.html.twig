@@ -1,0 +1,130 @@
+{% extends "AmicaleBundle::layoutAdmin.html.twig" %}
+
+{% block title %}
+    Membre
+{% endblock title %}
+
+
+{% block body %}
+
+    <div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+               Détailles membre
+            </div>
+            <div class="panel-body">
+                <h4>  Informations personnelles </h4>
+                <blockquote>
+                    <div class="table-responsive">
+                        <div class="col-md-6">
+                        <table class="table">
+                            <thead>
+                        <tr>
+                            <td>
+                                Nom
+                            </td><td>
+                                {{ membre.firstName }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Prénom
+                            </td><td>
+                                {{ membre.lastName }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Sexe
+                            </td><td>
+                                {{ membre.gender }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                N°CIN
+                            </td><td>
+                                {{ membre.cin }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                N°Téléphone
+                            </td><td>
+                                {{ membre.phone }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Adresse
+                            </td><td>
+                                {{ membre.address }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Profession
+                            </td><td>
+                                {{ membre.job }}
+                            </td>
+                        </tr>
+                    </thead>
+                    </table>
+                        </div>
+                    </div>
+                </blockquote>
+                <h4>Compte utilisateur</h4>
+                <blockquote>
+                    <div class="table-responsive">
+                        <div class="col-md-6">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <td>
+                                        Identificateur
+                                    </td><td>
+                                        {{ membre.username }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        E-Mail
+                                    </td><td>
+                                        {{ membre.email }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Rôle
+                                    </td>
+                                    <td>
+                                        {% if membre.roles[0]=="ROLE_UTILISATEUR" %}
+                                            Utilisateur
+                                        {% else %}
+                                            Administrateur
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Dernière connexion
+                                    </td><td>
+                                        Le {{ membre.lastLogin |date('d-m-Y') }} à {{ membre.lastLogin |date('H:i') }}
+                                    </td>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </blockquote>
+
+            </div>
+
+               </div>
+        </div>
+    </div>
+
+
+
+{% endblock body %}

@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<!--
+	Escape Velocity by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+
+        <title> {% block title %}   Amicale d'Esprit  {% endblock %} </title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--[if lte IE 8]><script src="{{ asset('assets/js/ie/html5shiv.js') }}"></script><![endif]-->
+        <link rel="stylesheet" href="{{ asset('assets/css/main.css')}}" />
+        <!--[if lte IE 8]><link rel="stylesheet" href="{{ asset('assets/css/ie8.css') }}" /><![endif]-->
+
+</head>
+<body class="homepage">
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <div id="header-wrapper" class="wrapper">
+        <div id="header">
+
+            <!-- Logo -->
+            <div id="logo">
+                <h1><a href="{{ asset('index.html')}}">Amicale d'Esprit </a></h1>
+
+            </div>
+
+            <!-- Nav -->
+
+
+        </div>
+    </div>
+    <!-- Login -->
+    <div id="intro-wrapper" class="wrapper style1">
+        <div class="title">Login</div>
+        <section id="intro" class="container">
+            {% block body %}
+
+            {% endblock %}
+        </section>
+    </div>
+
+
+
+</div>
+
+<!-- Scripts -->
+
+<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.dropotron.min.js') }}"></script>
+<script src="{{ asset('assets/js/skel.min.js') }}"></script>
+<script src="{{ asset('assets/js/skel-viewport.min.js') }}"></script>
+<script src="{{asset ('assets/js/util.js') }}"></script>
+<!--[if lte IE 8]><script src="asset{{ ('assets/js/ie/respond.min.js') }}"></script><![endif]-->
+<script src="{{asset ('assets/js/main.js') }}"></script>
+
+</body>
+</html>

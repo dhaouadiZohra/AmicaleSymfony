@@ -1,0 +1,79 @@
+{% extends "AmicaleBundle::layoutAdmin.html.twig" %}
+
+{% block title %}
+
+    Galerie
+
+<h4>
+    <div class="panel-heading">
+
+        <form method="GET">
+            <input type="text" name="rechercher" class="pull-right">
+            <input type="submit" value="Chercher" class="pull-right" >
+        </form>
+    </div></h4>
+{% endblock title %}
+
+
+{% block body %}
+
+{% if exist %}
+    {% if galerie| length !=0 %}
+    {% for img in galerie %}
+        <div class="col-lg-3 col-md-6">
+        <div class="panel panel-primary" >
+
+            <div class="panel-heading">
+                <img src="{{ asset('uploads/images/'~ img.glrImg ) }}">
+            </div>
+            <a href="#">
+                <div class="panel-footer">
+
+                    <span class="pull-left"> Crée le:{{ img.glrDate |date('d-m-Y') }}</span>
+                    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/rating.css') }}" />
+
+                    <a href="{{ path('Delete_Galerie', {'id':img.glrId})}}"> <p class="fa fa-trash-o">  </p></a>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+        <label> Aucune image toruvée !</label>
+    {% endif %}
+{% else %}
+    {% for img in galeries %}
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-primary" >
+
+
+                <div class="panel-heading">
+                    <img src="{{ asset('uploads/images/'~ img.glrImg ) }}">
+                </div>
+                <a href="#">
+                    <div class="panel-footer">
+
+                        <span class="pull-left"> Crée le:{{ img.glrDate |date('d-m-Y') }}</span>
+                        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/rating.css') }}" />
+
+                        <a href="{{ path('Delete_Galerie', {'id':img.glrId})}}"> <p class="fa fa-trash-o">  </p></a>
+                        <div class="clearfix"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    {% endfor %}
+
+{% endif %}
+
+
+
+    <div>
+    <a href="/Amicale/web/app_dev.php/CreateGalerie">Ajouter une image</a>
+    </div>
+    <div class="navigation text-center">
+        {{ knp_pagination_render(galeries) }}
+    </div>
+{% endblock body %}
